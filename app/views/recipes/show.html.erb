@@ -18,6 +18,7 @@
     <span class="text-lg font-semibold text-gray-900">Steps :</span>
     <span><%= @recipe.description %></span>
   </div>
+  
   <%# modal and its button %>
   <% if can? :destroy, @recipe %>
     <div class="flex justify-between my-2">
@@ -99,4 +100,7 @@
       </table>
     </div>
   <% end %>
+</div>
+<div class="flex justify-center">
+  <%= image_tag ("recipes.jpg"), :class => "w-6/12 border rounded-3xl"%>
 </div>
