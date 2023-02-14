@@ -1,0 +1,39 @@
+<div class="food-view mt-3 ">
+    <div class="container d-flex justify-content-center align-items-center">
+    <h1 class="welcome mt-5" >Welcome to the Food Index Page</h1>
+    <div>
+      </div>
+    <%= link_to 'Add Food',  new_food_path , class: "btn btn-primary mt-5 ms-4" %>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center mb-5 mt-3">
+    <h2>Below Is a List Of Foods in our Recipe App</h2>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Food</th>
+          <th scope="col">Measurement Unit</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Food.all.each do |food| %>
+            <tr>
+                <th scope="row"><%= food.id %></th>
+                <td><%= food.name %></td>
+                <td><%= food.measurement_unit %></td>
+                <td>$ <%= food.price %></td>
+                <td> <%= food.quantity %></td>
+                <td>
+                
+                <%= button_to "Delete", food_path(food.id), data: {turbo: false}, method: :delete, class: "btn btn-danger" %>
+                
+                </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
