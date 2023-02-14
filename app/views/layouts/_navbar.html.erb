@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <%= link_to 'RecipesApp', "/recipes", :class => "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to 'Recipes', "/recipes", :class => "nav-link active" %>
+        <%= link_to 'Food', "/foods", :class => "nav-link" %>
+        <%= link_to 'Public Recipes', "/public_lists", :class => "nav-link" %>
+        <%= link_to 'New Recipe', "/recipes/new", :class => "nav-link" %>
+        <%= link_to 'Shopping List', "#", :class => "nav-link" %>
+       
+      </div>
+    </div>
+  </div>
+</nav>
