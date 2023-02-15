@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center align-items-center">
+   
+<div class="new-food-container ms-5 mt-5 align-items-center" style='width:370px'>
+    <h1 class="create-title">Add A New Food</h1>
+    <%= form_with model: @food, url: foods_path do |f| %>
+    <div class="form-group">
+        <div class="form-outline mb-4">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, class: "form-control form-control-lg" %>
+        </div>
+        <div class="form-outline mb-4">
+            <%= f.label :measurement_unit %><br />
+            <%= f.select :measurement_unit, ['grams', 'kilograms', 'units', 'litres', 'dozen'],
+       {}, {class: "form-select"}  %>
+        </div>
+        <div class="form-outline mb-4">
+            <%= f.label :price %><br />
+            <%= f.number_field :price, class: "form-control form-control-lg" %>
+        </div>
+        
+        <div class="form-outline mb-4">
+            <%= f.label :quantity %><br />
+            <%= f.number_field :quantity, class: "form-control form-control-lg" %>
+        </div>
+        <div class="submit-btn">
+             <%= f.submit data: {turbo: false}, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+</div>
