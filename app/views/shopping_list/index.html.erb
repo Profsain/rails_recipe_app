@@ -1,0 +1,20 @@
+<h1 class="flex justify-center text-2xl font-extrabold text-gray-900  md:text-3xl lg:text-4xl">Shopping list</h1>
+<div class="flex justify-between p-4">
+<div class="p-4">
+<p>
+@missing_foods.count
+</p>
+<% @missing_foods.each do |food| %>
+  <p class="text-2xl font-extrabold text-gray-900  md:text-1xl lg:text-2xl">
+  Name: <%= food.name %>
+  </p>
+  <p class="text-2xl text-gray">
+  Quantity: <%= food.quantity(@recipe) %>
+  </p>
+  <p class="text-2xl text-gray">
+  Price: <%= food.price %>
+  </p>
+<% end %>
+</div>
+<%= image_tag ("shopping_list.jpg"), :class => "w-4/12 border rounded-3xl m-4"%>
+</div>
