@@ -1,0 +1,35 @@
+<h1 class="text-center mb-2 text-xl font-extrabold text-gray-900  md:text-2xl lg:text-3xl">
+  Shopping List
+</h1>
+<hr/>
+<div class='flex justify-around'>
+  <div><p>Amount of Food Items to buy: <%= @shopping_list.length %></p></div>
+  <div><p>Recipe: <%= @recipe.name %></p></div>
+</div>
+<div class='flex justify-around'>
+  <div><p>Total value of foods needed: <%= @total_value %></p></div>
+  <div><p>Inventory: <%= @inventory.name %></p></div>
+</div>
+<br/>
+<hr/>
+<br/>
+<section class="mx-auto w-full mt-6">`
+  <table class='w-full mx-auto mt-6'>
+    <thead>
+        <tr class='flex justify-between'>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @shopping_list.each do |food| %>
+            <tr class='flex justify-between'>
+                <td><%= food.name %></td>
+                <td><%= food.quantity %></td>
+                <td><%= food.price %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</section>`
