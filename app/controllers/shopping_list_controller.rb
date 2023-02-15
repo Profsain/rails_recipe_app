@@ -6,9 +6,6 @@ class ShoppingListController < ApplicationController
     @inventory_food = InventoryFood.find(params[:inventory_food_id])
     @shopping_list = []
     @shopping_list << @inventory_food if @inventory_food.quantity < @recipe.quantity(@recipe)
-
-    @shopping_list
-
     @total_value = 0
 
     @shopping_list.each do |item|
