@@ -25,7 +25,7 @@ default: &default
 development:
   <<: *default
   database: rails_recipe_app_development
-  port: 5433
+  # port: 5433
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -59,7 +59,7 @@ development:
 test:
   <<: *default
   database: rails_recipe_app_test
-  port: 5433
+  # port: 5433
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,4 +86,4 @@ production:
   database: rails_recipe_app_production
   username: rails_recipe_app
   password: <%= ENV["RAILS_RECIPE_APP_DATABASE_PASSWORD"] %>
-  port: 5433
+  # port: 5433

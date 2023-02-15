@@ -1,0 +1,37 @@
+<div class="flex justify-between">
+  <h1 class="flex justify-center text-2xl font-extrabold text-gray-900  md:text-3xl lg:text-4xl">
+    All Inventories of <%= current_user.name %>
+  </h1>
+  <%= link_to 'Add new Inventory', new_inventory_path , class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'  %>
+</div>
+
+<div class="flex justify-center mt-6">
+  <%= image_tag ("inventory.jpeg"), :class => "w-9/12 border rounded-3xl"%>
+</div>
+
+<section class="mx-auto w-full mt-6">
+  <ul>
+    <%# <% if can? :manage, inventory %>
+    <% @inventories.each do |inventory| %>
+      <li class="grid grid-cols-12 border mb-6 py-6 px-4">
+        <div class="mb-4 sm:mb-0 col-span-12 sm:col-span-4 items-center justify-center">
+          <div class="text-xl font-bold text-gray-900 mb-2">
+            <%= link_to inventory.name, inventory_path(inventory.id) %>
+        </div>
+        <% if can? :destroy, inventory %>
+          <%= link_to 'Delete', inventory_path(inventory.id), data: { turbo_method: :delete }, class: 'text-white bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-3 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
+        <% end %>
+        </div>
+        <div class="col-span-12 sm:col-span-8">
+          <h4 class="text-lg font-semibold"></h4>
+          <p>
+            <%= inventory.description %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+    <%# <% end %>
+  </ul>
+</section>
+        
+
