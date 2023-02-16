@@ -1,15 +1,40 @@
 class ShoppingListController < ApplicationController
-  def index
-    @user = current_user
-    @recipe = Recipe.find(params[:recipe_id])
-    @inventory = Inventory.find(params[:inventory_id])
-    @inventory_food = InventoryFood.find(params[:inventory_food_id])
-    @shopping_list = []
-    @shopping_list << @inventory_food if @inventory_food.quantity < @recipe.quantity(@recipe)
-    @total_value = 0
+  before_action :set_recipe
+  before_action :set_inventory
 
-    @shopping_list.each do |item|
-      @total_value += item.food.price * item.quantity
+  def index
+    @recipe_items = []
+
+    @recipe.recipe_foods.each do |recipe_food|
+      @recipe_items << recipe_food
     end
+
+    @inventory_items = []
+
+    @inventory.inventory_foods.each do |inventory_food|
+      @inventory_items << inventory_food
+    end
+
+    @shopping_list = []
+
+    @recipe_items.each do |recipe_item|
+      @inventory_items.each do |inventory_item|
+        next unless recipe_item.food_id == inventory_item.food_id && (recipe_item.quantity < inventory_item.quantity)
+
+        @shopping_list << recipe_item
+        @items_to_buy = @shopping_list.length
+        @total_value_of_food = @items_to_buy * recipe_item.food.price
+      end
+    end
+  end
+
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+  end
+
+  def set_inventory
+    @inventory = Inventory.find(params[:inventory_id])
   end
 end
