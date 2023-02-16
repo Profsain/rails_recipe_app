@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
     @inventories = current_user.inventories.all
-    
   end
 
   def new
