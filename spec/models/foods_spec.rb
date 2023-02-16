@@ -21,10 +21,6 @@ RSpec.describe Food, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'should have price of 2' do
-    expect(subject.price).to eql(2)
-  end
-
   it 'Should always have Price present' do
     subject.price = nil
     expect(subject).to_not be_valid

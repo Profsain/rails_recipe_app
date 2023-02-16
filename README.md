@@ -118,21 +118,20 @@ rspec spec
 
 👤 **Husseini Mudi Profsain**
 
-- GitHub: [@githubhandle](https://github.com/Profsain)
-- Twitter: [@twitterhandle](https://twitter.com/profsain)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/profsain)
+- GitHub: [@Profsain](https://github.com/Profsain)
+- Twitter: [@Profsain](https://twitter.com/profsain)
+- LinkedIn: [Profsain](https://www.linkedin.com/in/profsain)
 
-👤 **Yourname**
+👤 **Ahmad Zaki Yousufi**
 
-- GitHub: [@githubhandle](https://github.com/)
-- Twitter: [@twitterhandle](https://twitter.com/)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/)
+- GitHub: [@zakiyousufi](https://github.com/zakiyosufi)
+- LinkedIn: [zakiyousufi](https://www.linkedin.com/in/zakiyousufi)
 
-👤 **Yourname**
+👤 **Omar Warraich**
 
-- GitHub: [@githubhandle](https://github.com/)
-- Twitter: [@twitterhandle](https://twitter.com/)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/)
+- GitHub: [@Omar Warraich](https://github.com/OmarMWarraich)
+- Twitter: [@omarwarraich1](https://twitter.com/omarwarraich1)
+- LinkedIn: [o-va](https://www.linkedin.com/in/o-va/)
 
 ## 🤝 Contributing
 
