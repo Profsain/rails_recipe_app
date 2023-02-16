@@ -126,7 +126,6 @@ rspec spec
 
 - GitHub: [@zakiyousufi](https://github.com/zakiyosufi)
 - LinkedIn: [zakiyousufi](https://www.linkedin.com/in/zakiyousufi)
-app/views/recipe_foods/edit.html.erb
 
 👤 **Omar Warraich**
 
