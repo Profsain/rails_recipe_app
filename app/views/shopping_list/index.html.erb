@@ -1,36 +1,32 @@
-<h1 class="text-center mb-2 text-xl font-extrabold text-gray-900  md:text-2xl lg:text-3xl">
-  Shopping List
-</h1>
-<hr/>
-<div class='flex justify-around'>
-  <div><p>Amount of Food Items to buy: <%= @shopping_list.length %></p></div>
-  <div><p>Recipe: <%= @recipe.name %></p></div>
-</div>
-<div class='flex justify-around'>
-  <div><p>Total value of foods needed: <%= @total_value %></p></div>
-  <div><p>Inventory: <%= @inventory.name %></p></div>
-</div>
-<br/>
-<hr/>
-<br/>
-<section class="mx-auto w-full mt-6">`
-  <table class='w-full mx-auto mt-6'>
-    <thead>
-        <tr class='flex justify-between'>
-            <th>Food</th>
-            <th>Quantity</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @shopping_list.each do |food| %>
-            <tr class='flex justify-between'>
-                <td><%= food.name %></td>
-                <td><%= food.quantity %></td>
-                <td><%= food.price %></td>
-            </tr>
-        <% end %>
-    </tbody>
+
+
+
+<div class="container my-5">
+  <div class="flex justify-center">
+    <%= image_tag ("recipes2.jpg"), :class => "w-9/12 border rounded-3xl"%>
+  </div>
+
+  <h1 class="flex justify-center text-2xl font-extrabold text-gray-900  md:text-3xl lg:text-4xl">Shopping List </h1>
+
+  <div class="d-flex justify-content-between mb-3">
+    <p>Amount of items to buy: <%= @final_list.size %></p>
+    <p>Total value of food need: <%= @total %></p>
+  </div>
+  
+  <table class="table table-sm table-striped table-bordered border-dark ">
+    <tr>
+      <th> Food Item </th>
+      <th> Quantity </th>
+      <th> Price </th>
+      <th> Total </th>
+    </tr>
+    <% @final_list.each do |food_item| %>
+      <tr>
+        <td><%= food_item.name %></td>
+        <td><%= food_item.quantity %></td>
+        <td><%= "$#{ food_item.price }" %></td>
+        <td><%= "$#{ food_item.price * food_item.quantity }" %></td>
+      </tr>
+    <% end %>
   </table>
-  <%= image_tag ("shopping_list2.jpg"), :class => "w-4/12 border rounded-3xl m-4"%>
-</section>`
+</div>
