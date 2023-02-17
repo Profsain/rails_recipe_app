@@ -133,6 +133,11 @@ rspec spec
 - Twitter: [@omarwarraich1](https://twitter.com/omarwarraich1)
 - LinkedIn: [o-va](https://www.linkedin.com/in/o-va/)
 
+## Future Features 
+- Add a social media share button
+- Add a social registration
+- Add food favorite button
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
