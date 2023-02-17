@@ -1,43 +1,51 @@
-<div class='flex flex-col w-full'>
-  <h1 class='text-center w-full font-bold text-4xl underline mb-10'>
-    Shopping List
-  </h1>  
-  <div class='flex flex-col w-full'>
-    <div class='flex justify-around mb-3'>
-      <div>Amount of food items to buy: <%= @items_to_buy %></div>
-      <div>Recipe: <%=@recipe.id %></div>
+<h1 class="text-center mb-2 text-xl font-extrabold text-gray-900  md:text-2xl lg:text-3xl">
+  Shopping list 
+</h1>
+<div class="flex flex-col gap-y-1">
+  <div class="flex justify-between">
+    <div class="text-xl font-semibold text-gray-900">
+      <span>Amount of Food to buy: </span> <span class="italic"><%= @missing_foods.length %></span>
     </div>
-    <div class='flex justify-around'>
-      <div>Total value of food needed: <%= @total_value_of_food %></div>
-      <div>Inventory: <%=@inventory.id%></div>
+    <div class="text-xl font-semibold text-gray-900">
+      <span>Recipe: </span> <span class="italic underline"><%= link_to @recipe.name , recipe_path(@recipe) %></span>
     </div>
   </div>
-</div>
- 
-<div class='mt-5'>
-    <table class='table-auto w-full'>
-        <thead>
-            <tr>
-            <th class='px-4 py-2'>Food</th>
-            <th class='px-4 py-2'>Quantity</th>
-            <th class='px-4 py-2'>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @shopping_list.each do |item| %>
-            <tr>
-                <td class='border px-4 py-2'><%= item.food.name %></td>
-                <td class='border px-4 py-2'><%= item.quantity %></td>
-                <td class='border px-4 py-2'><%= item.food.price %></td>
-            </tr>
-            <% end %>
-        </tbody>
+  <div class="flex justify-between">
+    <div class="text-lg font-semibold text-gray-900">
+      <span>Total value of food needed: </span> <span class="italic">$<%= @missing_foods.reduce(0) { |sum, f| sum + (f.price.to_i * f.quantity(@recipe).to_i) } %></span>
+    </div>
+    <div class="text-xl font-semibold text-gray-900">
+      <span>Inventory: </span> <span class="italic underline"><%= link_to @inventory.name, inventory_path(@inventory) %></span>
+    </div>
+  </div>
+  <%# table %>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Food
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Quantity
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Price
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @missing_foods.each do |food| %>
+          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= food.name %></th>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= food.quantity(@recipe) %></td>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">$ <%= food.price.to_i * food.quantity(@recipe).to_i %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
+  </div>
 </div>
-    
-
-
-
-
-
-    
+<div class="flex justify-center p-4">
+<%= image_tag ("shopping_list2.jpg"), :class => "w-3/12 border rounded-3xl"%>
+</div>
