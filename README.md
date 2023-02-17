@@ -133,6 +133,11 @@ rspec spec
 - Twitter: [@omarwarraich1](https://twitter.com/omarwarraich1)
 - LinkedIn: [o-va](https://www.linkedin.com/in/o-va/)
 
+## 🔭 Future Features
+
+- Add user profile
+- Create reservation method for public rescipes
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -149,7 +154,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse 
+I would like to thank Microverse, coding partners, reviewers and anyone else workedwith us.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
