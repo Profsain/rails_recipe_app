@@ -85,4 +85,3 @@ group :test do
 end
 
 gem 'bootstrap', '~> 5.1.3'
-gem 'popper_js', '~> 2.9.3'
