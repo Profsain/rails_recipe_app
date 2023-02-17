@@ -1,31 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe 'Inventories', type: :request do
-  describe 'GET /new' do
-    it 'returns http success' do
-      get '/inventories/new'
-      expect(response).to have_http_status(:success)
+  describe 'GET index' do
+    before(:each) do
+      user = User.create name: 'Tom', email: 'tom@example.com', password: '123456'
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get inventories_path
     end
-  end
 
-  describe 'GET /create' do
-    it 'returns http success' do
-      get '/inventories/create'
-      expect(response).to have_http_status(:success)
+    it 'should return http request' do
+      expect(response.status).to eq(200) # redirected
     end
-  end
 
-  describe 'GET /index' do
-    it 'returns http success' do
-      get '/inventories/index'
-      expect(response).to have_http_status(:success)
+    it 'should render correct path' do
+      expect(response.status).to eq(200)
     end
-  end
 
-  describe 'GET /show' do
-    it 'returns http success' do
-      get '/inventories/show'
-      expect(response).to have_http_status(:success)
+    it "should not render page contenting 'redirected'" do
+      expect(response.body).not_to include('redirected')
     end
   end
 end

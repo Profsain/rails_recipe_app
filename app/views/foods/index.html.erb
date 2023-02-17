@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <% Food.all.each do |food| %>
+        <% @foods.all.each do |food| %>
             <tr>
                 <th scope="row"><%= food.id %></th>
                 <td><%= food.name %></td>

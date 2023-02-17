@@ -19,6 +19,7 @@ class RecipeFoodsController < ApplicationController
 
   def edit
     @recipe_food = RecipeFood.find(params[:id])
+    @foods = current_user.foods.all
   end
 
   def update

@@ -1,32 +1,43 @@
-
-
-
-<div class="container my-5">
-  <div class="flex justify-center">
-    <%= image_tag ("recipes2.jpg"), :class => "w-9/12 border rounded-3xl"%>
+<div class='flex flex-col w-full'>
+  <h1 class='text-center w-full font-bold text-4xl underline mb-10'>
+    Shopping List
+  </h1>  
+  <div class='flex flex-col w-full'>
+    <div class='flex justify-around mb-3'>
+      <div>Amount of food items to buy: <%= @items_to_buy %></div>
+      <div>Recipe: <%=@recipe.id %></div>
+    </div>
+    <div class='flex justify-around'>
+      <div>Total value of food needed: <%= @total_value_of_food %></div>
+      <div>Inventory: <%=@inventory.id%></div>
+    </div>
   </div>
-
-  <h1 class="flex justify-center text-2xl font-extrabold text-gray-900  md:text-3xl lg:text-4xl">Shopping List </h1>
-
-  <div class="d-flex justify-content-between mb-3">
-    <p>Amount of items to buy: <%= @final_list.size %></p>
-    <p>Total value of food need: <%= @total %></p>
-  </div>
-  
-  <table class="table table-sm table-striped table-bordered border-dark ">
-    <tr>
-      <th> Food Item </th>
-      <th> Quantity </th>
-      <th> Price </th>
-      <th> Total </th>
-    </tr>
-    <% @final_list.each do |food_item| %>
-      <tr>
-        <td><%= food_item.name %></td>
-        <td><%= food_item.quantity %></td>
-        <td><%= "$#{ food_item.price }" %></td>
-        <td><%= "$#{ food_item.price * food_item.quantity }" %></td>
-      </tr>
-    <% end %>
-  </table>
 </div>
+ 
+<div class='mt-5'>
+    <table class='table-auto w-full'>
+        <thead>
+            <tr>
+            <th class='px-4 py-2'>Food</th>
+            <th class='px-4 py-2'>Quantity</th>
+            <th class='px-4 py-2'>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @shopping_list.each do |item| %>
+            <tr>
+                <td class='border px-4 py-2'><%= item.food.name %></td>
+                <td class='border px-4 py-2'><%= item.quantity %></td>
+                <td class='border px-4 py-2'><%= item.food.price %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+    
+
+
+
+
+
+    
