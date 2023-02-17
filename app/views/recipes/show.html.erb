@@ -56,7 +56,13 @@
         <%= form_with url: shopping_list_index_path , method: :get do |form| %>
           <%= form.select :inventory_id, @inventories.map { |inventory| [inventory.name, inventory.id] } %>
           <%= form.hidden_field :recipe_id , value: @recipe.id %>
-          <button type="submit" class='mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Generate</button>
+          <button type="submit" class='mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+            <span>
+              <a href='/shoppinglist/index'>
+              <span class="text-white">Generate</span>
+              </a>
+            </span>
+          </button>
         <% end %>
         <!-- Modal footer -->
         <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -94,21 +100,27 @@
           </tr>
         </thead>
         <tbody>
-          <% @recipe_foods.each do |recipe_food| %>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= recipe_food.food.name %></th>
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= recipe_food.quantity %></td>
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">$ <%= recipe_food.quantity.to_i * recipe_food.food.price.to_i %></td>
-              <td>
-                <div class="flex gap-2">
-                  <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "font-medium p-1 rounded bg-blue-500 text-white dark:text-white hover:underline" %>
-                  <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), data:  { turbo_method: :delete }, class: "font-medium p-1 rounded bg-red-500 text-white dark:text-white hover:underline" %>
-                </div>
-              </td>
-            </tr>
+          
+        <% @recipe_foods.includes(:food).each do |recipe_food| %>
+          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          <td class="px-6 py-4 font-medium"><%= recipe_food.food.name %></td>
+          <td class="px-6 py-4 font-medium"><%= recipe_food.quantity %></td>
+          <td class="px-6 py-4 font-medium">$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+          <td>
+          <div class="flex gap-2">
+          <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "font-medium p-1 rounded bg-blue-500 text-white dark:text-white hover:underline" %>
+          <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), data: { turbo_method: :delete }, class: "font-medium p-1 rounded bg-red-500 text-white dark:text-white hover:underline" %>
+          </div>
+          </td>
+          </tr>
           <% end %>
+          
         </tbody>
       </table>
     </div>
   <% end %>
 </div>
+
+
+
+

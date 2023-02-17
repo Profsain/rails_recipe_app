@@ -2,7 +2,7 @@
   <h1 class="flex justify-center text-2xl font-extrabold text-gray-900 md:text-3xl lg:text-4xl">
     <%= @inventory.name %>
   </h1>
-  <%= link_to 'Add Food',  new_food_path , class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+  <%= link_to 'Add Food',  new_inventory_inventory_food_path(@inventory.id) , class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
 </div>
 <hr/>
 <section class="mx-auto w-full mt-6">
@@ -16,11 +16,11 @@
     </thead>
     <tbody>
         <% @inventory_foods.each do |inventory_food| %>
-            <tr class='flex justify-between'>
+            <tr class='flex justify-between mt-6'>
                 <td><%= inventory_food.food.name %></td>
                 <td><%= inventory_food.quantity %></td>
                 <td>
-                    <%= link_to 'Remove', inventory_path(inventory_food.id), data: {turbo: false}, method: :delete, class: "text-white bg-blue-700 hover:bg-blue-800 p-1 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-24 sm:w-auto text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+                    <%= link_to 'Remove', inventory_inventory_food_path(@inventory, inventory_food), data: { turbo_method: :delete }, class: 'text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
                 </td>
             </tr>
         <% end %>

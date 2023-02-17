@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Foods', type: :request do
+RSpec.describe 'Recipes', type: :request do
   describe 'GET index' do
     before(:each) do
       user = User.create name: 'Tom', email: 'tom@example.com', password: '123456'
       post user_session_path, params: { user: { email: user.email, password: user.password } }
-      get foods_path
+      get recipes_path
     end
 
     it 'should return http request' do

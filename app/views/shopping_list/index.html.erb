@@ -1,36 +1,43 @@
-<h1 class="text-center mb-2 text-xl font-extrabold text-gray-900  md:text-2xl lg:text-3xl">
-  Shopping List
-</h1>
-<hr/>
-<div class='flex justify-around'>
-  <div><p>Amount of Food Items to buy: <%= @shopping_list.length %></p></div>
-  <div><p>Recipe: <%= @recipe.name %></p></div>
+<div class='flex flex-col w-full'>
+  <h1 class='text-center w-full font-bold text-4xl underline mb-10'>
+    Shopping List
+  </h1>  
+  <div class='flex flex-col w-full'>
+    <div class='flex justify-around mb-3'>
+      <div>Amount of food items to buy: <%= @items_to_buy %></div>
+      <div>Recipe: <%=@recipe.id %></div>
+    </div>
+    <div class='flex justify-around'>
+      <div>Total value of food needed: <%= @total_value_of_food %></div>
+      <div>Inventory: <%=@inventory.id%></div>
+    </div>
+  </div>
 </div>
-<div class='flex justify-around'>
-  <div><p>Total value of foods needed: <%= @total_value %></p></div>
-  <div><p>Inventory: <%= @inventory.name %></p></div>
-</div>
-<br/>
-<hr/>
-<br/>
-<section class="mx-auto w-full mt-6">`
-  <table class='w-full mx-auto mt-6'>
-    <thead>
-        <tr class='flex justify-between'>
-            <th>Food</th>
-            <th>Quantity</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @shopping_list.each do |food| %>
-            <tr class='flex justify-between'>
-                <td><%= food.name %></td>
-                <td><%= food.quantity %></td>
-                <td><%= food.price %></td>
+ 
+<div class='mt-5'>
+    <table class='table-auto w-full'>
+        <thead>
+            <tr>
+            <th class='px-4 py-2'>Food</th>
+            <th class='px-4 py-2'>Quantity</th>
+            <th class='px-4 py-2'>Price</th>
             </tr>
-        <% end %>
-    </tbody>
-  </table>
-  <%= image_tag ("shopping_list2.jpg"), :class => "w-4/12 border rounded-3xl m-4"%>
-</section>`
+        </thead>
+        <tbody>
+            <% @shopping_list.each do |item| %>
+            <tr>
+                <td class='border px-4 py-2'><%= item.food.name %></td>
+                <td class='border px-4 py-2'><%= item.quantity %></td>
+                <td class='border px-4 py-2'><%= item.food.price %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+    
+
+
+
+
+
+    
