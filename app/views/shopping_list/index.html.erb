@@ -1,0 +1,29 @@
+
+
+<div class="container my-5">
+  <div class="flex justify-center">
+    <%= image_tag ("recipes2.jpg"), :class => "w-9/12 border rounded-3xl"%>
+  </div><br><br>
+  <h1 class="text-center">Shopping List </h1>
+  <div class="d-flex justify-content-between mb-3">
+    <p>Amount of items to buy: <%= @final_list.size %></p>
+    <p>Total value of food need: <%= @total %></p>
+  </div>
+  
+  <table class="table table-sm table-striped table-bordered border-dark ">
+    <tr>
+      <th> Food Item </th>
+      <th> Quantity </th>
+      <th> Price </th>
+      <th> Total </th>
+    </tr>
+    <% @final_list.each do |food_item| %>
+      <tr>
+        <td><%= food_item.name %></td>
+        <td><%= food_item.quantity %></td>
+        <td><%= "$#{ food_item.price }" %></td>
+        <td><%= "$#{ food_item.price * food_item.quantity }" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
