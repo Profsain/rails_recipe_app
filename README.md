@@ -26,9 +26,14 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Ruby on Rails Blog Web App] <a name="about-project"></a>
+# 📖 [Recipe App] <a name="about-project"></a>
 
 The Recipe App will allow you to save ingredients, keep track of what you have, create recipes, create inventory list, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+
+## 🖼 App Screenshot
+
+![recipeAppFinalScreenshot](https://user-images.githubusercontent.com/87229464/219685311-8788e1cd-ae2f-41a2-87f1-20b3061e39f4.JPG)
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -68,7 +73,7 @@ The Recipe App will allow you to save ingredients, keep track of what you have, 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
+- [No Live Demo Yet](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,10 +138,10 @@ rspec spec
 - Twitter: [@omarwarraich1](https://twitter.com/omarwarraich1)
 - LinkedIn: [o-va](https://www.linkedin.com/in/o-va/)
 
-## Future Features 
-- Add a social media share button
-- Add a social registration
-- Add food favorite button
+## 🔭 Future Features
+
+- Add user profile
+- Create reservation method for public rescipes
 
 ## 🤝 Contributing
 
@@ -154,7 +159,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse 
+I would like to thank Microverse, coding partners, reviewers and anyone else workedwith us.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
