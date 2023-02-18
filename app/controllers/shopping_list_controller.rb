@@ -12,10 +12,6 @@ class ShoppingListController < ApplicationController
 
     @price = @final_list.pluck(:price)
     @quantity = @final_list.pluck(:quantity)
-
-    puts "@Price: #{@price.inspect}"
-    puts "@Quantity: #{@quantity.inspect}"
-    
     @total = @price.zip(@quantity).map { |x, y| x * y }.sum
   end
 end
